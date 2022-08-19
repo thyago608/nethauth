@@ -53,7 +53,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
             });
 
             setCookie(undefined, 'nextauth.token', token, { maxAge: 60 * 60 * 24 * 30, path: '/' });
-            setCookie(undefined, 'nextauth.refreshToken', refreshToken, { maxAge: 60 * 60 * 24 * 30 });
+            setCookie(undefined, 'nextauth.refreshToken', refreshToken, { maxAge: 60 * 60 * 24 * 30, path: '/' });
 
             api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             Router.push('/dashboard');
